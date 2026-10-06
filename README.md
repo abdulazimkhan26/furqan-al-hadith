@@ -116,10 +116,10 @@ For comparison, Shia and Ahmadiyya material is **not stored in this repo as our 
 
 | Layer | Choice |
 |-------|--------|
-| Frontend | TBD (React / Next.js / Flutter) |
-| Backend / API | TBD |
+| Frontend | Next.js |
+| Backend | FastApi |
 | Data | JSON files → database |
-| Hosting | TBD |
+| Hosting | Railway & Vercel |
 
 ---
 
