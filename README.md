@@ -53,14 +53,43 @@ A hadith reference app that presents primary-source comparisons across Sunni, Sh
 
 ## 🗂 Data Sources
 
-Hadith data is based on open JSON datasets:
+Arabic text, gradings, and translations come from the sources below. Each text is traced back to its original publisher or translator, and licenses are recorded in [`data/SOURCES.md`](data/SOURCES.md).
 
-| Source | Description |
-|--------|-------------|
-| [hapiam/hadith-json](https://github.com/hapiam/hadith-json) | Forty Hadith Qudsi and other collections |
-| [AhmedBaset/hadith-json](https://github.com/AhmedBaset/hadith-json) | Major hadith books in JSON format |
+### Sources by collection
 
-Please check each dataset's license and give proper credit.
+| Collection | Arabic | English | Tamil | Gradings |
+|---|---|---|---|---|
+| **Sahih al-Bukhari** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/bukhari) once approved; until then fawazahmed0's English | Check fawazahmed0 editions; else [HadeethEnc](https://hadeethenc.com) | Collection-level note (sahih by consensus) |
+| **Sahih Muslim** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/muslim); stand-in: fawazahmed0 | Same as above | Collection-level note |
+| **Sunan Abi Dawud** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/abudawud); stand-in: fawazahmed0 | Same as above | fawazahmed0 (multi-grader) |
+| **Jami' at-Tirmidhi** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/tirmidhi); stand-in: fawazahmed0 | Same as above | fawazahmed0, plus the author's own grading |
+| **Sunan an-Nasa'i** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/nasai); stand-in: fawazahmed0 | Same as above | fawazahmed0 (multi-grader) |
+| **Sunan Ibn Majah** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/ibnmajah); stand-in: fawazahmed0 | Same as above | fawazahmed0 (multi-grader) |
+| **Muwatta Malik** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | [Sunnah.com](https://sunnah.com/malik); stand-in: fawazahmed0 | Same as above | fawazahmed0 |
+| **Musnad Ahmad** | [mhashim6 Open-Hadith-Data](https://github.com/mhashim6/Open-Hadith-Data) | [Sunnah.com](https://sunnah.com/ahmad) request; [hadith-json](https://github.com/AhmedBaset/hadith-json) for development only | None found | None ("not yet graded") |
+| **Sunan ad-Darimi** | [mhashim6 Open-Hadith-Data](https://github.com/mhashim6/Open-Hadith-Data) | [Sunnah.com](https://sunnah.com/darimi) request; hadith-json for development only | None found | None ("not yet graded") |
+| **Forty Hadith an-Nawawi** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) | fawazahmed0 or [HadeethEnc](https://hadeethenc.com) | HadeethEnc | fawazahmed0 (verify in the data) |
+| **Forty Hadith Qudsi** | [fawazahmed0](https://github.com/fawazahmed0/hadith-api) (also [hapiam/hadith-json](https://github.com/hapiam/hadith-json/blob/main/db/by_book/forties/qudsi40.json)) | fawazahmed0 or HadeethEnc | HadeethEnc | fawazahmed0 (verify in the data) |
+| **Riyad as-Salihin** | [hadith-json](https://github.com/AhmedBaset/hadith-json) (development only) | [Sunnah.com](https://sunnah.com/riyadussalihin) request | HadeethEnc (selected hadith only) | None found; ask Sunnah.com |
+
+### Source types
+
+| Source | Type | Role |
+|---|---|---|
+| [fawazahmed0/hadith-api](https://github.com/fawazahmed0/hadith-api) | Compiler | Arabic text and gradings |
+| [mhashim6/Open-Hadith-Data](https://github.com/mhashim6/Open-Hadith-Data) | Compiler | Arabic for Musnad Ahmad and ad-Darimi |
+| [Sunnah.com](https://sunnah.com) / [API](https://github.com/sunnah-com/api) | Original publisher | English, with permission and attribution |
+| [HadeethEnc](https://hadeethenc.com) | Original publisher | Graded selection in many languages |
+| [QuranLab on Hugging Face](https://huggingface.co/datasets/quranlab/hadith) | Aggregator | Cross-check copy of the above |
+| [AhmedBaset/hadith-json](https://github.com/AhmedBaset/hadith-json) | Scraped from Sunnah.com | Development and prototyping only |
+
+### Licensing notes
+
+- **Arabic text** is classical and in the public domain. The repo licenses of the compilers cover their code and formatting.
+- **Translations** belong to their translators and publishers. Each hadith shows the translator's name, and removal requests are honored. See the [disclaimer](#️-disclaimer).
+- **Bukhari and Muslim** carry a collection-level note ("accepted as authentic by scholarly consensus"), not a grade on every hadith.
+- **Gradings** always show the grader's name and source.
+- Check each repo's `LICENSE` file before use and record it in `data/SOURCES.md`.
 
 For comparison, Shia and Ahmadiyya material is **not stored in this repo as our own database**. It is fetched from those communities' own published sources, cached, and linked back to the original.
 
